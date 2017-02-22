@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mutation</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <style type="text/css">
+    .chart rect {
+      stroke: white;
+    }
+    text.mono {
+      font-size: 10pt;
+      font-family: Consolas, courier;
+      fill: #000;
+    }
+    text.text-selected {
+      fill: #000;
+    }
+    text.text-highlight {
+      fill: #c00;
+    }
+    text.text-hover {
+      fill: #00C;
+    }
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+    .axis text {
+      font-family: sans-serif;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Nature in code</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li ><a href="/">Home</a></li>
+          <li ><a href="/genetic-drift.html">Genetic Drift</a></li>
+          <li class="active"><a href="/mutation.html">Mutation <span class="sr-only">(current)</span></a></li>
+          <li ><a href="/migration.html">Migration</a></li>
+          <li ><a href="/natural-selection.html">Natural Selection</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container" >
+    <div class="row">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">What is mutation?</h3>
+        </div>
+        <div class="panel-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="well">
+                <p class="text-info">Mutation is the random change in genetic sequence</p>
+                <small>A mutation is a change in DNA, the hereditary material of life. An organism's DNA affects how it looks, how it behaves, and its physiology. So a change in an organism's DNA can cause changes in all aspects of its life.</small>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="mutation rate EX:0.001" id="mutationRate">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <p><input type="checkbox" name="playGenerations" id="playGenerations" value="1">Continously play mutation for Generation 100?</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <div class="input-group">
+                    <button class="btn btn-default" onclick="document.getElementById('after').innerHTML='';runSimulation();">Run mutation</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Before mutation - Generation 0</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="container">
+
+                    <div class="row">
+                      <div id="cols1"></div>
+                      <div id="before"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  <h3 class="panel-title">After mutation - Generation 100</h3>
+                </div>
+                <div class="panel-body" >
+                  <div id="cols2"></div>
+                  <div id="after"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/mutation-d3.js"></script>
+</body>
+</html>

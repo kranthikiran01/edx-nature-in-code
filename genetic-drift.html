@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css">
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Nature in code</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li ><a href="/">Home</a></li>
+					<li class="active"><a href="/genetic-drift.html">Genetic Drift <span class="sr-only">(current)</span></a></li>
+					<li ><a href="/mutation.html">Mutation</a></li>
+					<li ><a href="/migration.html">Migration</a></li>
+					<li ><a href="/natural-selection.html">Natural Selection</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">What is genetic drift?</h3>
+				</div>
+				<div class="panel-body">
+					<div class="well">
+						<p class="text-info">Genetic drift is kind of evolution that occurs in finite population and the random chance plays a key role in the change of allele frequencies</p>
+						<p class="text-warning">Given large generations and populations, even though it takes time, eventually the genetic variation ceases and the evolution comes to a stop</p>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<div class="form-group">
+									<div class="input-group">
+										<input type="text" class="form-control" placeholder="population size" id="population">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<div class="input-group">
+										<input type="text" class="form-control" placeholder="generations" id="generations">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<div class="input-group">
+										<input type="text" class="form-control" placeholder="number of simulations" id="simulations">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<div class="input-group">
+										<p><input type="checkbox" name="bottleNeck" id="bottleNeck" value="1">Check for bottleNecked simulations</p>
+										<button class="btn btn-default" onclick="document.getElementById('geneticDrift').innerHTML='';runSimulation();">Generate</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div id="geneticDrift" onload="clickHandler();"></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<script type="text/javascript" src="js/genetic-drift.js"></script>
+</body>
+</html>
